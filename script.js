@@ -31,7 +31,6 @@ function render() {
     const tableBooks = document.querySelector(".tableBooks");
     
     myLibrary.forEach(function(book) {
-        console.log(book.title);
         const rowBook = document.createElement("tr");
         rowBook.innerHTML = `<td>${book.title}</td>
             <td>${book.author}</td>
@@ -46,27 +45,8 @@ function render() {
 }
 
 function showNewBookForm() {
-    //TODO remove
+    //TODO replace - see https://www.w3schools.com/howto/howto_js_popup_form.asp
     console.log("show new book form");
-    const containerInput = document.querySelector(".containerInput");
-    const newBookForm = document.createElement("form");
-    newBookForm.innerHTML = `
-        Title:<br>
-        <input type="text" name="title">
-        <br>
-        Author:<br>
-        <input type="text" name="author">
-        <br>
-        Nr of pages:<br>
-        <input type="number" name="pages" value = 0>
-        <br>
-        Read?<br>
-        <input type="radio" name="read" value="no" checked> No<br>
-        <input type="radio" name="read" value="yes"> Yes<br>
-        <br><br>
-        <input type="submit" value="Submit">
-    `
-    containerInput.appendChild(newBookForm);
 }
 
 const newBookButton = document.querySelector("#newBookButton");
