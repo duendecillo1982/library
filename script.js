@@ -44,14 +44,31 @@ function render() {
     })
 }
 
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+
 function showNewBookForm() {
     //TODO replace - see https://www.w3schools.com/howto/howto_js_popup_form.asp
-    console.log("show new book form");
+    document.getElementById("newBookForm").style.display = "block";
+}
+
+function hideNewBookForm() {
+    document.getElementById("newBookForm").style.display = "none";
 }
 
 const newBookButton = document.querySelector("#newBookButton");
 newBookButton.addEventListener("click", function() {
     showNewBookForm();
+})
+
+const closeNewBookFormButton = document.querySelector("#closeNewBookForm");
+closeNewBookFormButton.addEventListener("click", function() {
+    hideNewBookForm();
 })
 
 sampleBooks();
