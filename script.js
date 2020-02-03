@@ -56,6 +56,10 @@ function hideNewBookForm() {
     document.getElementById("newBookForm").style.display = "none";
 }
 
+function addBook() {
+    addBookToLibrary("voorbeeldboek", "voorbeeldauteur", 200, false);
+}
+
 const newBookButton = document.querySelector("#newBookButton");
 newBookButton.addEventListener("click", function() {
     showNewBookForm();
@@ -67,10 +71,10 @@ closeNewBookFormButton.addEventListener("click", function() {
 })
 
 const addBookButton = document.querySelector('#addNewBook');
-addBookButton.addEventListener("click", function() {
-    addBookToLibrary("Boektitel3", "Auteur3", 300, false);
-    hideNewBookForm();
-})
+addBookButton.addEventListener("click", addBook);
+
+
+
 
 sampleBooks();
 render();
