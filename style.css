@@ -22,7 +22,7 @@ td {
     text-align: center;
 }
 
-#newBookForm {
+#newBookFormContainer {
     display: none;
     width: 300px;
     background-color: wheat;

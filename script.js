@@ -51,11 +51,12 @@ function render() {
 }
 
 function showNewBookForm() {
-    document.getElementById("newBookForm").style.display = "block";
+    resetForm();
+    document.getElementById("newBookFormContainer").style.display = "block";
 }
 
 function hideNewBookForm() {
-    document.getElementById("newBookForm").style.display = "none";
+    document.getElementById("newBookFormContainer").style.display = "none";
 }
 
 function addBook() {    
@@ -66,6 +67,10 @@ function addBook() {
     let isRead = (read == "true");
     addBookToLibrary(title, author, pages, isRead);
 
+}
+
+function resetForm() {
+    document.getElementById("newBookForm").reset();
 }
 
 const newBookButton = document.querySelector("#newBookButton");
