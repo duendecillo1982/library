@@ -1,5 +1,3 @@
-//TODO: stop page from refreshing on submitting form - now myLibrary gets reset every time I add a new book.
-
 let myLibrary = [];
 const tableBody = document.querySelector("#tableBooks tbody");
 
@@ -23,6 +21,7 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(title, author, pages, read) {
     let book = new Book(title, author, pages, read);
     myLibrary.push(book);
+    render();
 }
 
 function sampleBooks() {
@@ -31,7 +30,10 @@ function sampleBooks() {
 }
 
 function render() {
+    // delete existing rows
+    tableBody.innerHTML="";
     
+    // add a row to the table for each book
     myLibrary.forEach(function(book) {
         const rowBook = document.createElement("tr");
         rowBook.innerHTML = `<td>${book.title}</td>
@@ -45,14 +47,6 @@ function render() {
         tableBody.appendChild(rowBook);
     })
 }
-
-function openForm() {
-    document.getElementById("myForm").style.display = "block";
-  }
-  
-  function closeForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
 
 function showNewBookForm() {
     document.getElementById("newBookForm").style.display = "block";
@@ -75,7 +69,7 @@ closeNewBookFormButton.addEventListener("click", function() {
 const addBookButton = document.querySelector('#addNewBook');
 addBookButton.addEventListener("click", function() {
     addBookToLibrary("Boektitel3", "Auteur3", 300, false);
-    render();
+    hideNewBookForm();
 })
 
 sampleBooks();
