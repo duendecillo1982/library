@@ -39,11 +39,13 @@ function render() {
         rowBook.innerHTML = `<td>${book.title}</td>
             <td>${book.author}</td>
             <td>${book.pages}</td>`
+
         if (book.read) {
-            rowBook.innerHTML += "<td>Yes</td>"
+            rowBook.innerHTML += "<td>Yes</td>";
         } else {
-            rowBook.innerHTML += "<td>No</td>"
+            rowBook.innerHTML += "<td>No</td>";
         }
+        
         tableBody.appendChild(rowBook);
     })
 }
@@ -56,25 +58,31 @@ function hideNewBookForm() {
     document.getElementById("newBookForm").style.display = "none";
 }
 
-function addBook() {
-    addBookToLibrary("voorbeeldboek", "voorbeeldauteur", 200, false);
+function addBook() {    
+    let title = document.getElementById("title").value;
+    let author = document.getElementById("author").value;
+    let pages = document.getElementById("pages").value;
+    let read = document.querySelector('input[name="read"]:checked').value;
+    let isRead = (read == "true");
+    addBookToLibrary(title, author, pages, isRead);
+
 }
 
 const newBookButton = document.querySelector("#newBookButton");
-newBookButton.addEventListener("click", function() {
+newBookButton.addEventListener("click", () => {
     showNewBookForm();
 })
 
 const closeNewBookFormButton = document.querySelector("#closeNewBookForm");
-closeNewBookFormButton.addEventListener("click", function() {
+closeNewBookFormButton.addEventListener("click", () => {
     hideNewBookForm();
 })
 
 const addBookButton = document.querySelector('#addNewBook');
-addBookButton.addEventListener("click", addBook);
-
-
-
+addBookButton.addEventListener("click", () => {
+    addBook();
+    hideNewBookForm();
+})
 
 sampleBooks();
 render();
